@@ -27,8 +27,11 @@ app.use(fileUpload())
 app.use(express.static("public"))
 
 app.options('*', cors());
-app.use("/home", home);
-
+app.get('/', (req, res) => {
+  res.json({
+    message: '🦄🌈✨👋🌎🌍🌏✨🌈🦄',
+  });
+});
 app.use(router);
 
 start();
