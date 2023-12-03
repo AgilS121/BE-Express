@@ -25,12 +25,12 @@ const start = async function(a, b) {
   app.use(express.static("public"))
 
   app.options('*', cors());
-  
-  app.use(router)
-    
-  app.listen(port, () => {
-    console.log(`Server is running on port ${port}`);
-  });
+
+  app.use(router);
 }
 
-start()
+start();
+
+app.listen(port, () => {
+  console.log(`Server berjalan di port ${port}`);
+});
