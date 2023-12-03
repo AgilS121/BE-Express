@@ -1,6 +1,7 @@
 import express from "express";
 import db from "./config/Database.js";
 import router from "./routes/index.js";
+import home from './routes/home.js'
 import cookieParser from "cookie-parser";
 import fileUpload from "express-fileupload";
 import cors from "cors"
@@ -26,6 +27,7 @@ app.use(fileUpload())
 app.use(express.static("public"))
 
 app.options('*', cors());
+app.use("/home", home);
 
 app.use(router);
 
