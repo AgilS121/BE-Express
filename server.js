@@ -17,17 +17,17 @@ const start = async function(a, b) {
   } catch (e) {
       console.log(e)
   }
-
-  app.use(cors({ credentials: true, origin: 'https://vite-react-donor.vercel.app' }))
-  app.use(cookieParser())
-  app.use(express.json())
-  app.use(fileUpload())
-  app.use(express.static("public"))
-
-  app.options('*', cors());
-
-  app.use(router);
 }
+
+app.use(cors({ credentials: true, origin: 'https://vite-react-donor.vercel.app' }))
+app.use(cookieParser())
+app.use(express.json())
+app.use(fileUpload())
+app.use(express.static("public"))
+
+app.options('*', cors());
+
+app.use(router);
 
 start();
 
