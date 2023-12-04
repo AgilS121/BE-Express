@@ -27,12 +27,12 @@ app.use(fileUpload())
 app.use(express.static("public"))
 
 app.options('*', cors());
-app.get('/', (req, res) => {
+app.use('/', (req, res) => {
   res.json({
     message: '🦄🌈✨👋🌎🌍🌏✨🌈🦄',
   });
 });
-app.use(router);
+// app.use(router);
 
 start();
 
