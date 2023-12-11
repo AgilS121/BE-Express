@@ -165,11 +165,14 @@ export const updateUsers = async(req, res) => {
     if (!user) {
         res.status(404).json({msg:"Data Tidak Ditemukan"})
     }
-
+    let fileName = "default.png"
+    if (req.files === null){
+      fileName = user.image
+    } else {
       const file = req.files.file
       const fileSize = file.data.length
       const ext = path.extname(file.name)
-      const fileName = file.md5 + ext
+      fileName = file.md5 + ext
       const allowedType = ['.png','.jpg','.jpeg']
 
       if (!allowedType.includes(ext.toLowerCase())) {
@@ -179,13 +182,12 @@ export const updateUsers = async(req, res) => {
           return res.status(422).json({ msg: "Max Image Sized 5MB"})
       }
 
-
       file.mv(`./public/images/${fileName}`, (err) => {
           if (err) {
               return res.status(500).json({ msg: err.message})
           }
       })
-    
+    }
 
     const name = req.body.name
     const username = usernameUsers
@@ -268,7 +270,7 @@ export const resetPassword = async (req, res) => {
       from: 'kiravelnote@gmail.com',
       to: email,
       subject: 'Reset Password',
-      text: 'Klik link ini untuk reset password: http://localhost:5173/newpassword',
+      text: 'Klik link ini untuk reset password: http://localhost:5173/reset-password',
     };
 
     transporter.sendMail(mailOptions, (error, info) => {

@@ -1,6 +1,6 @@
 import { Sequelize } from "sequelize"
-const db = new Sequelize('bltccfz5y4ey473u5n9i', 'uppgcoz8idgo1a0w',  'rG5coiBHKIxGOwFl7Wen', {
-    host: "bltccfz5y4ey473u5n9i-mysql.services.clever-cloud.com",
+const db = new Sequelize('donors', 'root',  '', {
+    host: "localhost",
     dialect: "mysql"
 })
 
