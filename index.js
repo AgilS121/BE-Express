@@ -19,7 +19,7 @@ const start = async function(a, b) {
   }
 }
 
-app.use(cors({ credentials: true, origin: 'http://localhost:5173' }))
+app.use(cors({ credentials: true, origin: 'https://vite-react-donor-oop782wwz-agilsaps-projects.vercel.app/' }))
 app.use(cookieParser())
 app.use(express.json())
 app.use(fileUpload())
