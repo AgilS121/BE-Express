@@ -19,11 +19,12 @@ const start = async function(a, b) {
   }
 }
 
-app.use(cors({ credentials: true, origin: 'https://vite-react-donor-oop782wwz-agilsaps-projects.vercel.app/' }))
+app.use(cors({ credentials: true, origin: 'https://vite-react-donor-oop782wwz-agilsaps-projects.vercel.app' }));
 app.use(cookieParser())
 app.use(express.json())
 app.use(fileUpload())
 app.use(express.static("public"))
+app.use(cors());
 
 app.options('*', cors());
 
