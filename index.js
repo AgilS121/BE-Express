@@ -19,6 +19,7 @@ const start = async function (a, b) {
   }
 };
 
+// Configure CORS
 const corsOptions = {
   origin: "https://vite-react-donor-oop782wwz-agilsaps-projects.vercel.app",
   methods: "GET, POST, PUT, PATCH, DELETE, OPTIONS",
@@ -32,6 +33,12 @@ app.use(cookieParser());
 app.use(express.json());
 app.use(fileUpload());
 app.use(express.static("public"));
+
+// Set additional headers to handle preflight requests
+app.options("*", cors(corsOptions));
+
+// Route-specific CORS
+app.use("/users", cors(corsOptions));
 
 app.use(router);
 
