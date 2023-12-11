@@ -20,6 +20,12 @@ const start = async function(a, b) {
 }
 
 app.use(cors({ credentials: true, origin: 'https://vite-react-donor-oop782wwz-agilsaps-projects.vercel.app' }));
+app.use((req, res, next) => {
+  res.setHeader('Access-Control-Allow-Origin', '*')
+  res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, PATCH, DELETE, OPTIONS')
+  res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization')
+  next()
+})
 app.use(cookieParser())
 app.use(express.json())
 app.use(fileUpload())
